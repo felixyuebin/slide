@@ -1,0 +1,26 @@
+.banner {
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+
+.banner-list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-item {
+    background: url(index.jpeg) no-repeat center center;
+    background-size: cover;
+}
