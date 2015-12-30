@@ -6,6 +6,8 @@ function Banner($bannerWrapper, options) {
     }
     // 当前元素记录
     this._index = 0;
+    // 标志是否处于动画中
+    this.isSliding = false;
     // 滑动位置记录
     this._slideIndex = 0;
     this.$bannerWrapper = $bannerWrapper;
@@ -72,6 +74,12 @@ Banner.prototype.SLIDE_TIME = 800;
 Banner.prototype.AUTO_SLIDE_TIME = 6000;
 
 Banner.prototype.doSlide = function(step) {
+    // 检查是否处于动画中
+    if (this.isSliding) {
+        return ;
+    }
+    this.isSliding = true;
+    
     var _this = this;
     var prevIndex = _this._index;
 
@@ -105,7 +113,7 @@ Banner.prototype.doSlide = function(step) {
             _this.initFunctions[_this._index].call(_this, _this.$bannerItems.eq(_this._index));
             _this.initFunctions[_this._index] = null;
         }
-
+        _this.isSliding = false;
     });
     
     if (_this.$bannerLabels.length) {
